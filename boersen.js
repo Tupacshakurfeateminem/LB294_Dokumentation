@@ -69,7 +69,7 @@ function getBoersenDataFromAPI() {
       displayBoersenData(data); // Anzeige der Börsendaten
     })
     .catch(error => {
-      showError('Fehler beim Abrufen der Daten: ' + error.message, document.querySelector(".boersen-container"));
+      showError('Fehler beim Abrufen der Daten: ', error);
     });
 }
 
