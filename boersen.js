@@ -17,45 +17,47 @@ function displayBoersenData(data) {
       boersenItem.classList.add("boersen-item");
 
       // Elemente für Börsenkurs erstellen und hinzufügen
-      const symbolElement = document.createElement("p");
-      symbolElement.textContent = `Symbol: ${filteredData[0].symbol}`;
-
-      const nameElement = document.createElement("p");
-      nameElement.textContent = `Name: ${filteredData[0].name}`;
-
-      const minPriceElement = document.createElement("p");
-      minPriceElement.textContent = `Mindestpreis: ${filteredData[0].minPrice} $`;
-
-      const maxPriceElement = document.createElement("p");
-      maxPriceElement.textContent = `Höchstpreis: ${filteredData[0].maxPrice} $`;
-
-      const averagePriceElement = document.createElement("p");
-      averagePriceElement.textContent = `Durchschnittspreis: ${filteredData[0].averagePrice} $`;
-
-      const currentPriceElement = document.createElement("p");
-      currentPriceElement.textContent = `Aktueller Preis: ${filteredData[0].currentPrice} $`;
+      const symbolElement = createParagraphElement(`Symbol: ${filteredData[0].symbol}`);
+      const nameElement = createParagraphElement(`Name: ${filteredData[0].name}`);
+      const minPriceElement = createParagraphElement(`Mindestpreis: ${filteredData[0].minPrice} $`);
+      const maxPriceElement = createParagraphElement(`Höchstpreis: ${filteredData[0].maxPrice} $`);
+      const averagePriceElement = createParagraphElement(`Durchschnittspreis: ${filteredData[0].averagePrice} $`);
+      const currentPriceElement = createParagraphElement(`Aktueller Preis: ${filteredData[0].currentPrice} $`);
       
       // Elemente der Börsenkurs-Anzeige hinzufügen
-      boersenItem.appendChild(symbolElement);
-      boersenItem.appendChild(nameElement);
-      boersenItem.appendChild(currentPriceElement);
-      boersenItem.appendChild(minPriceElement);
-      boersenItem.appendChild(maxPriceElement);
-      boersenItem.appendChild(averagePriceElement);
-
-      boersenContainer.appendChild(boersenItem); // Börsenkurs-Anzeige hinzufügen
+      appendToContainer(boersenItem, [symbolElement, nameElement, currentPriceElement, minPriceElement, maxPriceElement, averagePriceElement]);
+      appendToContainer(boersenContainer, [boersenItem]); // Börsenkurs-Anzeige hinzufügen
     } else {
       // Fehlermeldung anzeigen, wenn das Symbol nicht gefunden wurde
-      console.error(`Symbol '${input}' nicht gefunden.`);
-      const errorElement = document.createElement("p");
-      errorElement.textContent = `Symbol '${input}' nicht gefunden.`;
-      errorElement.classList.add("error-message"); // Klasse zum Styling oder zur Anzeige hinzufügen
-
-      boersenContainer.appendChild(errorElement); // Fehlermeldung hinzufügen
+      showError(`Symbol '${input}' nicht gefunden.`, boersenContainer);
     }
   } else {
     // Fehlermeldung für ungültige Eingabe anzeigen
-    console.error("Ungültige Eingabe.");
+    showError("Ungültige Eingabe.", boersenContainer);
+  }
+}
+
+// Hilfsfunktion zum Erstellen eines <p>-Elements
+function createParagraphElement(text) {
+  const element = document.createElement("p");
+  element.textContent = text;
+  return element;
+}
+
+// Hilfsfunktion zum Hinzufügen mehrerer Elemente zu einem Container
+function appendToContainer(container, elements) {
+  elements.forEach(element => container.appendChild(element));
+}
+
+// Hilfsfunktion zur Anzeige einer Fehlermeldung
+function showError(message, container) {
+  console.error(message);
+  if (container) {
+    const errorElement = createParagraphElement(message);
+    errorElement.classList.add("error-message");
+    container.appendChild(errorElement);
+  } else {
+    console.error('Container nicht gefunden.');
   }
 }
 
@@ -67,7 +69,7 @@ function getBoersenDataFromAPI() {
       displayBoersenData(data); // Anzeige der Börsendaten
     })
     .catch(error => {
-      console.error('Fehler beim Abrufen der Daten:', error);
+      showError('Fehler beim Abrufen der Daten: ' + error.message, document.querySelector(".boersen-container"));
     });
 }
 
