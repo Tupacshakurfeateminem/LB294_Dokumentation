@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="about.css">
+    <title>Börsenkurs Seite</title>
+</head>
+<body>
+  <header>
+    <nav>
+        <ul class="menu">
+         <li> <a href="index.html">Main</a></li>
+         <li> <a href="login.html">login</a></li>
+        </ul> 
+       </nav>
+</header>
+    <h1>Börsenkurse</h1>
+
+    <!-- Formular zur Kurs-Hinzufügung -->
+    <form id="kursForm">
+        <label for="kursName">Kursname:</label>
+        <input type="text" id="kursName" required>
+
+        <label for="kursSymbol">Symbol:</label>
+        <input type="text" id="kursSymbol" required>
+
+        <label for="currentPrice">currentPrice:</label>
+        <input type="number" id="currentPrice" step="0.01" required>
+
+        <label for="minPrice">minPrice:</label>
+        <input type="number" id="minPrice" step="0.01" required>
+
+        <label for="maxPrice">maxPrice:</label>
+        <input type="number" id="maxPrice" step="0.01" required>
+
+        <label for="averagePrice">averagePrice:</label>
+        <input type="number" id="averagePrice" step="0.01" required>
+
+        <button type="submit">Kurs hinzufügen</button>
+    </form>
+    
+    <!-- Anzeige der hinzugefügten Kurse -->
+    <ul id="boersen-list">
+        <!-- Kurse werden hier angezeigt -->
+    </ul>
+   
+    <script src="about.js"></script>
+    <footer>
+        <div class="copyright">
+            &copy; 2023 John Broder
+        </div>
+    </footer>
+</body>
+</html>

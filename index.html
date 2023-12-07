@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Börsenkurs App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="menu">
+        <li><a href="about.html">Hinzufügen</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h1>Börsenkurs App</h1>
+
+  <div class="anzeige">
+    <div class="suche">
+      <input
+        id="input"
+        type="text"
+        placeholder="Geben Sie ein Börsensymbol ein"
+        spellcheck="false"
+      />
+      <button id="submitButton">Suchen</button>
+    </div>
+    <div class="boersen-container">
+      <!-- Börsenkurse werden hier angezeigt -->
+    </div>
+  </div>
+
+  <footer>
+    <div class="copyright">
+      &copy; 2023 John Broder 
+    </div>
+  </footer>
+
+  <script src="boersen.js"></script>
+</body>
+</html>

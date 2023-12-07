@@ -1,0 +1,19 @@
+{
+    "AAPL": {
+        "symbol": "AAPL",
+        "name": "Apple Inc.",
+        "currentPrice": 150.25,
+        "minPrice": 145.50,
+        "maxPrice": 155.75 ,
+        "averagePrice": 151.00
+    },
+    "GOOGL": {
+        "symbol": "GOOGL",
+        "name": "Alphabet Inc.",
+        "currentPrice": 2750.00,
+        "minPrice": 2700.50,
+        "maxPrice": 2805.25,
+        "averagePrice": 2760.00
+    }
+   
+}

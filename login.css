@@ -1,0 +1,92 @@
+body {
+  background-color: black;
+  color: #00ccff;
+}
+.menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    }
+    
+    .menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    }
+    
+    .menu li {
+    display: inline;
+    margin-right: 15px;
+    }
+    
+    .menu li a {
+    text-decoration: none;
+    color: #00ccff ;
+    font-weight: bold;
+    }
+    h1 {
+      font-family: Arial, sans-serif;
+      font-size: 25px;
+      text-align: center;
+    }
+
+    
+label {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  display: block;
+  margin: 10px 0;
+}
+input {
+  align-items: center;
+  width: 10%;
+  height: 30px;
+  border: 1px solid gray;
+  padding: 5px;
+  outline: none;
+}
+
+button {
+  width: 10%;
+  height: 40px;
+  border: none;
+background-color: #00ccff;  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: darkgray;
+}
+
+p {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  text-align: center;
+ 
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#message {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  text-align: center;
+  color: red;
+}
+
+    footer{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+      }
+      
